@@ -11,8 +11,11 @@ while True:
  sock.listen(1)
  conn, addr = sock.accept()
  data = conn.recv(1024)
-#edit from this------------------------------------
-#
+ addlen=len(data)-3
+ add=data[:-addlen]
+#edit from this------------------------------------ x='buffalo'    
+#                                                                  exec("%s = %d" % (x,2))
+#                                                                  print buffalo
  if data=='cdopen':
   os.system("eject /dev/sr0")
   conn.send('Ready')
@@ -21,7 +24,12 @@ while True:
  elif data=='help':
     conn.send('cdopen\nos\nhelp\nstop')
  elif data=='stop':
+    conn.close()
     break
+ elif add=='add':
+   conn.send('this func is not ready')
+ elif data=='add':
+   conn.send('syntax:add (variable)\n |enter| \n(value)\nfor example:add port |enter| 1100')
  else:
   conn.send('Error: Unknow command')
 #
