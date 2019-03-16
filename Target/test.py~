@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import os,time
-os.system('python client.py')
+os.system('python2 client.py')
 while True:
-  os.system('python serv.py')
+  os.system('python2 serv.py')
   time.sleep(10)

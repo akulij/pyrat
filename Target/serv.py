@@ -12,10 +12,13 @@ sock = socket.socket()
 sock.bind(('', port))
 while True:
  sock.listen(1)
+ sotest='heelo'
  conn, addr = sock.accept()
  data = conn.recv(1024)
  addlen=len(data)-3
  add=data[:-addlen]
+ showlen=len(data)-4
+ show=data[:-showlen]
 #edit from this------------------------------------ x='buffalo'    
 #                                                                  exec("%s = %d" % (x,2))
 #                                                                  print buffalo ; rfind()
@@ -29,6 +32,14 @@ while True:
  elif data=='stop':
     conn.close()
     break
+ elif show=='show':
+   shower='showing'
+   pos=data.rfind('-')+1
+   end=data[pos:len(data)]
+   exec("%s=%s" % (shower,end))
+   if showing!=str(showing):
+     showing=str(showing)
+   conn.send(showing)
  elif add=='add':
    valpos=data.rfind('-')+1
    valend=data[valpos:len(data)]
@@ -40,14 +51,6 @@ while True:
    conn.send('this func is not ready')
  elif data=='reload':
    conn.send("i can't find solution for this:(")
- elif data=='syscmd':
-   conn.send('what to do?')
-   cmd=str(conn.recv(1024))
-   print cmd
-   conn.send('making')
-   process = subprocess.Popen("python2","test.py")
-   code = process.wait()
-   conn.send(str(code))
  else:
   conn.send('Error: Unknow command')
 #
