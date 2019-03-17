@@ -48,7 +48,7 @@ while True:
    space=data.rfind(' ',pos)
    variablename=data[pos:space]
    exec("%s = %d" % (variablename,valend))
-   conn.send('this func is not ready')
+   conn.send('ready')
  elif data=='reload':
    conn.send("i can't find solution for this:(")
  else:
