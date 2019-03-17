@@ -12,4 +12,4 @@ else:
   sock.send(comnd)
   data = sock.recv(1024)#continue this
   print data
-  os.system('python 127.0.0.1.py')
+  os.system('python2 127.0.0.1.py')
