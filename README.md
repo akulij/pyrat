@@ -15,7 +15,7 @@ PyRAT - progr for pintest Alpha V0.1(Not release)
 <h4>Останавливает сервер Target'а</h4>
 <h2>exit</h2> 
 | Syntax:exit
-</h4>Выходит из клиента</h4>
+<h4>Выходит из клиента</h4>
 <h2>cdopen</h2> 
 | Syntax:cdopen
 <h4>открывает дисковод</h4>
